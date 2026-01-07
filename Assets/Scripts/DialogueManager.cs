@@ -1,0 +1,60 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro; // Jeśli używasz TextMeshPro
+
+public class DialogueManager : MonoBehaviour
+{
+    // Singleton - łatwy dostęp z każdego miejsca (opcjonalne, ale wygodne)
+    public static DialogueManager Instance;
+
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
+    public GameObject dialoguePanel; 
+
+    private Queue<string> sentences; 
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        sentences = new Queue<string>();
+    }
+
+    public void StartDialogue(Dialogue dialogue)
+    {
+        dialoguePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        nameText.text = dialogue.npcName;
+        Time.timeScale = 0; 
+
+        sentences.Clear();
+
+        foreach (string sentence in dialogue.sentences)
+        {
+            sentences.Enqueue(sentence);
+        }
+
+        NextSentence();
+    }
+
+    public void NextSentence()
+    {
+        if (sentences.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
+        string sentence = sentences.Dequeue();
+        dialogueText.text = sentence;
+    }
+
+    void EndDialogue()
+    {
+        dialoguePanel.SetActive(false);
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+}
