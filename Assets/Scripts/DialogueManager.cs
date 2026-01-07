@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using TMPro; // Jeśli używasz TextMeshPro
+using TMPro; 
 
 public class DialogueManager : MonoBehaviour
 {
-    // Singleton - łatwy dostęp z każdego miejsca (opcjonalne, ale wygodne)
     public static DialogueManager Instance;
 
     public TextMeshProUGUI nameText;
