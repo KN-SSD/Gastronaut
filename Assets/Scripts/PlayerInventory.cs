@@ -3,18 +3,17 @@ using UnityEngine.Events;
 
 public class PlayerInventory : MonoBehaviour
 {
-    public int numberOfCollectables = 0;
+    public int numberOfCollectables { get; private set; } = 0;
 
-    public UnityEvent<PlayerInventory> onCollectableGet;
+    [SerializeField] private UnityEvent<PlayerInventory> onCollectableGet;
 
-    public void collectedCollectables()
+    public void CollectedCollectables()
     {
         numberOfCollectables++;
         Debug.Log("Krysztly: " + numberOfCollectables);
 
         if (onCollectableGet!=null)
-        {
             onCollectableGet.Invoke(this);
-        }
+       
     }
 }

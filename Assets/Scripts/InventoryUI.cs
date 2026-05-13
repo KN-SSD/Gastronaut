@@ -4,7 +4,7 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    public TextMeshProUGUI collectableTxt;
+    [SerializeField] private TextMeshProUGUI collectableTxt;
 
     public void updateCollectable(PlayerInventory playerInventory)
     {

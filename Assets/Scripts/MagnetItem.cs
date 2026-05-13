@@ -2,22 +2,25 @@ using UnityEngine;
 
 public class MagnetItem : MonoBehaviour
 {
-    public float flySpeed = 15f;
-    public float playerReached = 0.5f;
+    [SerializeField] private float flySpeed = 15f;
+    [SerializeField] private float playerReached = 0.5f;
 
     private Transform playerTransform;
     private bool isFlying = false;
 
     void Update()
     {
-        if (isFlying && playerTransform!=null)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, flySpeed*Time.deltaTime);
+        FlyToPlayer();
+    }
 
-            if (Vector3.Distance(transform.position, playerTransform.position)<playerReached)
-            {
+    private void FlyToPlayer()
+    {
+        if (isFlying && playerTransform != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, flySpeed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, playerTransform.position) < playerReached)
                 Collect(playerTransform.gameObject);
-            }
         }
     }
 
@@ -35,9 +38,8 @@ public class MagnetItem : MonoBehaviour
         PlayerInventory inventory = player.GetComponent<PlayerInventory>();
 
         if (inventory!=null)
-        {
-            inventory.collectedCollectables();
-        }
+            inventory.CollectedCollectables();
+        
         Destroy(gameObject);
     }
 }
