@@ -8,13 +8,9 @@ public class LookAtCamera : MonoBehaviour
     {
         GameObject cameraObj = GameObject.FindGameObjectWithTag("MainCamera");
         if (cameraObj != null)
-        {
             cameraTransform = cameraObj.transform;
-        }
         else
-        {
             Debug.LogError("Nie znaleziono kamery z tagiem 'MainCamera'!");
-        }
     }
 
     void Update()
@@ -28,9 +24,7 @@ public class LookAtCamera : MonoBehaviour
             projectedDirection = -projectedDirection;
 
             if (projectedDirection != Vector3.zero)
-            {
                 transform.rotation = Quaternion.LookRotation(projectedDirection, transform.parent.up);
-            }
         }
     }
 }

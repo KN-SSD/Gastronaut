@@ -4,17 +4,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Ustawienia")]
-    public Transform planet; 
-    public Transform cameraTransform; 
-    public Transform model; 
+    [SerializeField] private Transform planet; 
+    [SerializeField] private Transform cameraTransform; 
+    [SerializeField] private Transform model; 
 
-    public float gravity = -15f; 
-    public float moveSpeed = 12f;
-    public float rotationSpeed = 15f; 
-    public float jumpForce = 10f;
+    [SerializeField] private float gravity = -15f; 
+    [SerializeField] private float moveSpeed = 12f;
+    [SerializeField] private float rotationSpeed = 15f; 
+    [SerializeField] private float jumpForce = 10f;
 
     private Rigidbody rb;
     private Vector3 moveInput;
+    private Animator playerAnimator;
 
     void Start()
     {
@@ -23,11 +24,24 @@ public class PlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
 
+        playerAnimator = GetComponentInChildren<Animator>();
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
+    {
+        PlayerMove();
+    }
+    
+
+    void FixedUpdate()
+    {
+       PlanetGravity();
+    }
+
+    private void PlayerMove()
     {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
@@ -37,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = Vector3.ProjectOnPlane(rb.linearVelocity, transform.up);
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            playerAnimator.SetTrigger("Jump");
         }
 
         if (moveInput.sqrMagnitude > 0.01f)
@@ -51,11 +66,14 @@ public class PlayerMovement : MonoBehaviour
                 model.rotation = Quaternion.Slerp(model.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             }
         }
+
+        if (playerAnimator != null)
+            playerAnimator.SetFloat("Speed", moveInput.magnitude);
     }
 
-    void FixedUpdate()
+    private void PlanetGravity()
     {
-        if (planet == null) return;
+         if (planet == null) return;
 
         Vector3 directionToCenter = (transform.position - planet.position).normalized;
         

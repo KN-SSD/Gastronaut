@@ -7,9 +7,9 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance;
 
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
-    public GameObject dialoguePanel; 
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private GameObject dialoguePanel;
 
     private Queue<string> sentences; 
 

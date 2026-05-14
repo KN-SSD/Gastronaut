@@ -8,5 +8,6 @@ public class InventoryUI : MonoBehaviour
 
     public void updateCollectable(PlayerInventory playerInventory)
     {
-        collectableTxt.text = playerInventory.numberOfCollectables.ToString();    }
+        collectableTxt.text = playerInventory.numberOfCollectables.ToString();    
+    }
 }

@@ -14,25 +14,19 @@ public class NPCDialogue : MonoBehaviour
      void Update()
     {
         if(NPCInteractCanvas.activeSelf && Input.GetKeyDown(KeyCode.E))
-        {
             TriggerDialogue();
-        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             NPCInteractCanvas.SetActive(true);
-        }
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             NPCInteractCanvas.SetActive(false);
-        }
     }
 
     private void TriggerDialogue()
