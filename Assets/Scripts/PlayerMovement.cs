@@ -71,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (playerAnimator != null) playerAnimator.SetFloat("Speed", moveInput.magnitude);
+
+        if(Input.GetKeyDown(KeyCode.E))
+            playerAnimator.SetTrigger("Wave");
     }
 
     void FixedUpdate()
