@@ -4,18 +4,25 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Ustawienia")]
-    [SerializeField] private Transform planet; 
-    [SerializeField] private Transform cameraTransform; 
-    [SerializeField] private Transform model; 
+    [SerializeField] private Transform planet;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Transform model;
 
-    [SerializeField] private float gravity = -15f; 
+    [SerializeField] private float gravity = 30f;
     [SerializeField] private float moveSpeed = 12f;
-    [SerializeField] private float rotationSpeed = 15f; 
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float rotationSpeed = 15f;
+    [SerializeField] private float jumpForce = 12f;
+    
+    [Header("Detekcja Ziemi")]
+    [SerializeField] private LayerMask groundMask;
 
     private Rigidbody rb;
     private Vector3 moveInput;
     private Animator playerAnimator;
+
+    private bool isGrounded;
+    private Vector3 groundNormal;
+    private float lastJumpTime;
 
     void Start()
     {
@@ -23,35 +30,31 @@ public class PlayerMovement : MonoBehaviour
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
+        
+        // ZABEZPIECZENIE PRZED PRZENIKANIEM W ŚCIANY I WYSTRZELIWANIEM
+        rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
         playerAnimator = GetComponentInChildren<Animator>();
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
-        PlayerMove();
-    }
-    
-
-    void FixedUpdate()
-    {
-       PlanetGravity();
-    }
-
-    private void PlayerMove()
-    {
         float h = Input.GetAxisRaw("Horizontal");
         float v = Input.GetAxisRaw("Vertical");
         moveInput = new Vector3(h, 0, v).normalized;
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && isGrounded && Time.time - lastJumpTime > 0.2f)
         {
-            rb.linearVelocity = Vector3.ProjectOnPlane(rb.linearVelocity, transform.up);
+            // Oczyszczamy prędkość osi Y przed skokiem, by skok zawsze miał taką samą wysokość
+            Vector3 currentVel = rb.linearVelocity;
+            float upSpeed = Vector3.Dot(currentVel, transform.up);
+            rb.linearVelocity = currentVel - (transform.up * upSpeed);
+
             rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-            playerAnimator.SetTrigger("Jump");
+            if (playerAnimator != null) playerAnimator.SetTrigger("Jump");
+            lastJumpTime = Time.time;
         }
 
         if (moveInput.sqrMagnitude > 0.01f)
@@ -67,35 +70,82 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (playerAnimator != null)
-            playerAnimator.SetFloat("Speed", moveInput.magnitude);
+        if (playerAnimator != null) playerAnimator.SetFloat("Speed", moveInput.magnitude);
     }
 
-    private void PlanetGravity()
+    void FixedUpdate()
     {
-         if (planet == null) return;
+        ApplyPlanetGravity();
+        CheckGrounded();
+        ApplyMovement();
+    }
 
+    private void ApplyPlanetGravity()
+    {
+        if (planet == null) return;
         Vector3 directionToCenter = (transform.position - planet.position).normalized;
-        
         rb.AddForce(directionToCenter * gravity, ForceMode.Acceleration);
 
         Quaternion targetRotation = Quaternion.FromToRotation(transform.up, directionToCenter) * transform.rotation;
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 50f * Time.fixedDeltaTime);
+        rb.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, 50f * Time.fixedDeltaTime));
+    }
 
-        
+    private void CheckGrounded()
+    {
+        // Zabezpieczenie tuż po skoku
+        if (Time.time - lastJumpTime < 0.2f)
+        {
+            isGrounded = false;
+            groundNormal = transform.up;
+            return;
+        }
+
+        // Puszczamy promień lekko pod stopy (długość 1.3f dla standardowej kapsuły)
+        if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.3f, groundMask))
+        {
+            isGrounded = true;
+            groundNormal = hit.normal;
+        }
+        else
+        {
+            isGrounded = false;
+            groundNormal = transform.up;
+        }
+    }
+
+    private void ApplyMovement()
+    {
         Vector3 camFwd = Vector3.ProjectOnPlane(cameraTransform.forward, transform.up).normalized;
         Vector3 camRight = Vector3.ProjectOnPlane(cameraTransform.right, transform.up).normalized;
         Vector3 desiredDir = (camFwd * moveInput.z + camRight * moveInput.x).normalized;
 
-        Vector3 targetVelocity = desiredDir * moveSpeed;
+        if (isGrounded)
+        {
+            // KLUCZ: Nachylamy wektor ruchu, żeby był w 100% równoległy do zbocza góry
+            Vector3 slopeMoveDir = Vector3.ProjectOnPlane(desiredDir, groundNormal).normalized;
 
-        Vector3 verticalVelocity = Vector3.Project(rb.linearVelocity, transform.up);
+            if (moveInput.sqrMagnitude > 0.01f)
+            {
+                // Twardo narzucamy prędkość WZDŁUŻ tekstury.
+                // Ponieważ omijamy AddForce, silnik nie zdąży wygenerować odbicia rzucającego gracza w kosmos.
+                rb.linearVelocity = slopeMoveDir * moveSpeed;
+            }
+            else
+            {
+                // Twarde hamowanie do zera na ziemi (koniec ślizgania)
+                rb.linearVelocity = Vector3.zero;
+            }
+        }
+        else
+        {
+            // W POWIETRZU: Oddzielamy grawitację (oś Y) od chodzenia w poziomie.
+            float currentVerticalSpeed = Vector3.Dot(rb.linearVelocity, transform.up);
+            Vector3 verticalVelocity = transform.up * currentVerticalSpeed;
 
-        rb.linearVelocity = targetVelocity + verticalVelocity;
-    }
+            Vector3 horizontalVelocity = desiredDir * moveSpeed;
 
-    bool IsGrounded()
-    {
-        return Physics.Raycast(transform.position, -transform.up, 1.2f);
+            // Łączymy spadanie i sterowanie w powietrzu
+            rb.linearVelocity = horizontalVelocity + verticalVelocity;
+        }
     }
 }
