@@ -13,4 +13,12 @@ public class UiRelatedFunctions : MonoBehaviour
         panel.SetActive(false);
     }
 
+    private void Awake()
+    {
+        if(SceneManager.GetActiveScene().name == "Menu")
+            Cursor.lockState = CursorLockMode.None;
+        else
+            Cursor.lockState = CursorLockMode.Locked;
+    }
+
 }

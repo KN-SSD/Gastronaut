@@ -24,18 +24,28 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         if (dialogue == null)
+        {
+            Debug.LogError("Próba rozpoczęcia dialogu z null!");
             return;
+        }
 
         currentDialogue = dialogue;
         
         currentVariant = dialogue.GetActiveVariant();
         
         if (currentVariant == null)
+        {
+            Debug.LogError("Brak dostępnego wariantu dialogu!");
             return;
+        }
 
         if (currentVariant.sentences == null || currentVariant.sentences.Length == 0)
+        {
+            Debug.LogError($"Wariant dla '{dialogue.npcName}' ma puste sentences!");
             return;
+        }
 
+        Debug.Log($"[DialogueManager] Rozpoczynam dialog z '{dialogue.npcName}'. Zdań: {currentVariant.sentences.Length}");
 
         dialoguePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -50,6 +60,7 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        Debug.Log($"[DialogueManager] Queue ma {sentences.Count} zdań");
         NextSentence();
     }
 
@@ -57,18 +68,23 @@ public class DialogueManager : MonoBehaviour
     {
         if (sentences.Count == 0)
         {
+            Debug.Log("[DialogueManager] Koniec zdań, zamykam dialog");
             EndDialogue();
             return;
         }
 
         string sentence = sentences.Dequeue();
+        Debug.Log($"[DialogueManager] Wyświetlam: {sentence} (pozostało: {sentences.Count})");
         dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
         if (currentVariant != null)
-            DialogueActionFactory.ExecuteAction(currentVariant.actionType);
+        {
+            Debug.Log($"[DialogueManager] Wykonuję akcję: {currentVariant.actionType}");
+            DialogueActionFactory.ExecuteAction(currentVariant.actionType, currentVariant.questName);
+        }
 
         dialoguePanel.SetActive(false);
         Time.timeScale = 1;
