@@ -1,8 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// Testowa akcja do debugowania - wypisuje wiadomość.
-/// </summary>
 [System.Serializable]
 public class DebugAction : IDialogueAction
 {
