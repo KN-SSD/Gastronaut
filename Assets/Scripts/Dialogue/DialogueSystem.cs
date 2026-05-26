@@ -31,6 +31,12 @@ public class NPCDialogue : MonoBehaviour
 
     private void TriggerDialogue()
     {
+        if (dialogue == null)
+            return;
+        
+        if (dialogue.GetVariants().Count == 0)
+            return;
+
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 }

@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
         
-        // ZABEZPIECZENIE PRZED PRZENIKANIEM W ŚCIANY I WYSTRZELIWANIEM
         rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
 
         playerAnimator = GetComponentInChildren<Animator>();
@@ -47,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded && Time.time - lastJumpTime > 0.2f)
         {
-            // Oczyszczamy prędkość osi Y przed skokiem, by skok zawsze miał taką samą wysokość
             Vector3 currentVel = rb.linearVelocity;
             float upSpeed = Vector3.Dot(currentVel, transform.up);
             rb.linearVelocity = currentVel - (transform.up * upSpeed);
@@ -72,8 +70,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (playerAnimator != null) playerAnimator.SetFloat("Speed", moveInput.magnitude);
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.G))
             playerAnimator.SetTrigger("Wave");
+        if(Input.GetKeyDown(KeyCode.Y))
+            playerAnimator.SetTrigger("Dance");
     }
 
     void FixedUpdate()
@@ -95,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckGrounded()
     {
-        // Zabezpieczenie tuż po skoku
         if (Time.time - lastJumpTime < 0.2f)
         {
             isGrounded = false;
@@ -103,7 +102,6 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        // Puszczamy promień lekko pod stopy (długość 1.3f dla standardowej kapsuły)
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1.3f, groundMask))
         {
             isGrounded = true;
@@ -124,30 +122,20 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded)
         {
-            // KLUCZ: Nachylamy wektor ruchu, żeby był w 100% równoległy do zbocza góry
             Vector3 slopeMoveDir = Vector3.ProjectOnPlane(desiredDir, groundNormal).normalized;
 
             if (moveInput.sqrMagnitude > 0.01f)
-            {
-                // Twardo narzucamy prędkość WZDŁUŻ tekstury.
-                // Ponieważ omijamy AddForce, silnik nie zdąży wygenerować odbicia rzucającego gracza w kosmos.
                 rb.linearVelocity = slopeMoveDir * moveSpeed;
-            }
             else
-            {
-                // Twarde hamowanie do zera na ziemi (koniec ślizgania)
                 rb.linearVelocity = Vector3.zero;
-            }
         }
         else
         {
-            // W POWIETRZU: Oddzielamy grawitację (oś Y) od chodzenia w poziomie.
             float currentVerticalSpeed = Vector3.Dot(rb.linearVelocity, transform.up);
             Vector3 verticalVelocity = transform.up * currentVerticalSpeed;
 
             Vector3 horizontalVelocity = desiredDir * moveSpeed;
 
-            // Łączymy spadanie i sterowanie w powietrzu
             rb.linearVelocity = horizontalVelocity + verticalVelocity;
         }
     }

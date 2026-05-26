@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using TMPro; 
+using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,7 +11,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
 
-    private Queue<string> sentences; 
+    private Queue<string> sentences;
+    private Dialogue currentDialogue;
+    private DialogueVariant currentVariant;
 
     private void Awake()
     {
@@ -21,15 +23,29 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        if (dialogue == null)
+            return;
+
+        currentDialogue = dialogue;
+        
+        currentVariant = dialogue.GetActiveVariant();
+        
+        if (currentVariant == null)
+            return;
+
+        if (currentVariant.sentences == null || currentVariant.sentences.Length == 0)
+            return;
+
+
         dialoguePanel.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         nameText.text = dialogue.npcName;
-        Time.timeScale = 0; 
+        Time.timeScale = 0;
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in currentVariant.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -51,9 +67,15 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        if (currentVariant != null)
+            DialogueActionFactory.ExecuteAction(currentVariant.actionType);
+
         dialoguePanel.SetActive(false);
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
+        currentDialogue = null;
+        currentVariant = null;
     }
 }
