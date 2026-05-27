@@ -10,6 +10,9 @@ public class DialogueVariant
     [Tooltip("Typ warunku, który musi być spełniony, aby wyświetlić ten wariant")]
     public DialogueConditionType conditionType = DialogueConditionType.AlwaysTrue;
     
+    [Tooltip("Nazwa questa dla warunku (jeśli dotyczy konkretnego questa)")]
+    public string questName = "Red Quest";
+    
     [Tooltip("Typ akcji do wykonania po zakończeniu dialogu")]
     public DialogueActionType actionType = DialogueActionType.None;
 }
@@ -42,7 +45,7 @@ public class Dialogue
             if (variant == null)
                 continue;
                 
-            if (DialogueConditionFactory.CheckCondition(variant.conditionType))
+            if (DialogueConditionFactory.CheckCondition(variant.conditionType, variant.questName))
                 return variant;
         }
         
@@ -52,12 +55,19 @@ public class Dialogue
 
 public enum DialogueConditionType
 {
-    AlwaysTrue,      
-    QuestStarted,    
+    AlwaysTrue,
+    QuestStarted,
+    QuestInProgress,
+    QuestReady,
+    QuestCompleted,
+    AllQuestsCompleted,
 }
 
 public enum DialogueActionType
 {
-    None,            
-    StartQuest,      
+    None,
+    StartQuest,
+    StartAllQuests,
+    CompleteQuest,
+    LevelComplete,
 }
