@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PickableCube
   - CinemamachineCamera
+  - Planet
   layers:
   - Default
   - TransparentFX

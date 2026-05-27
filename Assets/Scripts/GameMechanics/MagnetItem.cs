@@ -8,6 +8,9 @@ public class MagnetItem : MonoBehaviour
     private Transform playerTransform;
     private bool isFlying = false;
 
+    [SerializeField] private string questName;
+
+
     void Update()
     {
         FlyToPlayer();
@@ -20,7 +23,8 @@ public class MagnetItem : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, flySpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, playerTransform.position) < playerReached)
-                Collect(playerTransform.gameObject);
+                if(QuestManager.Instance.AddQuestProgress(questName))
+                    Destroy(gameObject);
         }
     }
 
@@ -31,6 +35,8 @@ public class MagnetItem : MonoBehaviour
             playerTransform = other.transform;
             isFlying = true;
         }
+        if(other.CompareTag("Planet"))
+            Destroy(gameObject);    
     }
 
     private void Collect(GameObject player)

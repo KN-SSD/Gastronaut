@@ -25,18 +25,18 @@ public class QuestManager : MonoBehaviour
     public void CreateQuest()
     {
         quests.Add(new Quest("Red Quest", 3, "Wanilla", "Red Companion"));
-        quests.Add(new Quest("Green Quest", 3, "Wanilla", "Green Companion"));
+        quests.Add(new Quest("Green Quest", 15, "Wanilla", "Green Companion"));
         quests.Add(new Quest("Blue Quest", 3, "Wanilla", "Blue Companion"));
         
         Debug.Log("[QuestManager] Questy utworzone");
     }
 
-    /// <summary>
-    /// Uruchamia wszystkie questy (stary alias dla kompatybilności)
-    /// </summary>
-    public void StartQuestes()
+    public bool HasQuestStarted(string questName)
     {
-        StartAllQuests();
+        Quest quest = GetQuestByName(questName);
+        if (quest != null && quest.questState == QuestState.InProgress)
+            return true;
+        return false;
     }
 
     /// <summary>
