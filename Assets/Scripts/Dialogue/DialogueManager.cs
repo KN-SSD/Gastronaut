@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -70,7 +71,10 @@ public class DialogueManager : MonoBehaviour
         DisableCinemachineAxes();
 
         Debug.Log($"[DialogueManager] Queue ma {sentences.Count} zdań");
-        npcAnimator.SetBool("Talk", true);
+
+        if(npcAnimator != null)
+            npcAnimator.SetBool("Talk", true);
+
         NextSentence();
     }
 
@@ -102,10 +106,15 @@ public class DialogueManager : MonoBehaviour
         Cursor.visible = false;
 
         EnableCinemachineAxes();
-        npcAnimator.SetBool("Talk", false);
+
+        if (npcAnimator != null)
+            npcAnimator.SetBool("Talk", false);
 
         currentDialogue = null;
         currentVariant = null;
+
+        if (SceneManager.GetActiveScene().name == "Prolog")
+            SceneManager.LoadScene("Colorito");
     }
 
     private void DisableCinemachineAxes()
