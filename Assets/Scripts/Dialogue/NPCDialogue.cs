@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPCDialogue : MonoBehaviour
 {
@@ -22,8 +23,11 @@ public class NPCDialogue : MonoBehaviour
 
     void Update()
     {
-        if (NPCInteractCanvas.activeSelf && Input.GetKeyDown(KeyCode.E))
-            TriggerDialogue();
+        if(SceneManager.GetActiveScene().name != "Prolog")
+        {
+            if (NPCInteractCanvas.activeSelf && Input.GetKeyDown(KeyCode.E))
+                TriggerDialogue();
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -38,7 +42,7 @@ public class NPCDialogue : MonoBehaviour
             NPCInteractCanvas.SetActive(false);
     }
 
-    private void TriggerDialogue()
+    public void TriggerDialogue()
     {
         if (dialogue == null)
             return;

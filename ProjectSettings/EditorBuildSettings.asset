@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 5cb587bf942644e688e056d41a7cc398
   - enabled: 1
+    path: Assets/Scenes/Prolog.unity
+    guid: 934ee5d00564a487787be1239bd85157
+  - enabled: 1
     path: Assets/Scenes/Colorito.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
