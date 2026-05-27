@@ -4,16 +4,25 @@ public class NPCDialogue : MonoBehaviour
 {
     [SerializeField] private Dialogue dialogue;
     private GameObject NPCInteractCanvas;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
-        NPCInteractCanvas = GameObject.Find("NPCInteractCanvas");
-        NPCInteractCanvas.SetActive(false);
+        Transform child = transform.Find("NPCInteractCanvas");
+        animator = transform.GetComponentInChildren<Animator>();
+
+        if (child != null)
+        {
+            NPCInteractCanvas = child.gameObject;
+            NPCInteractCanvas.SetActive(false);
+        }
+        if (animator == null)
+            Debug.LogWarning("Nie można znaleźć komponentu Animator w dzieciach obiektu NPC!");
     }
 
-     void Update()
+    void Update()
     {
-        if(NPCInteractCanvas.activeSelf && Input.GetKeyDown(KeyCode.E))
+        if (NPCInteractCanvas.activeSelf && Input.GetKeyDown(KeyCode.E))
             TriggerDialogue();
     }
 
@@ -33,10 +42,10 @@ public class NPCDialogue : MonoBehaviour
     {
         if (dialogue == null)
             return;
-        
+
         if (dialogue.GetVariants().Count == 0)
             return;
 
-        DialogueManager.Instance.StartDialogue(dialogue);
+        DialogueManager.Instance.StartDialogue(dialogue, animator);
     }
 }

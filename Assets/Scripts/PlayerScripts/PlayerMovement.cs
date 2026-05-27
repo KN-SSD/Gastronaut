@@ -139,4 +139,16 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = horizontalVelocity + verticalVelocity;
         }
     }
+
+    public void StopMovementAndRotation()
+    {
+        moveSpeed = 0;
+        rotationSpeed = 0;
+    }
+
+    public void StartMovementAndRotation()
+    {
+        moveSpeed = 8;
+        rotationSpeed = 10;
+    }
 }

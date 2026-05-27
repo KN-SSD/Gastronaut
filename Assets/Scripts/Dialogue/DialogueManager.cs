@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Cinemachine;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -11,18 +12,25 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private GameObject dialoguePanel;
 
+    private GameObject camObject = null;
+    GameObject playerObject = null;
     private Queue<string> sentences;
     private Dialogue currentDialogue;
     private DialogueVariant currentVariant;
+    private Animator npcAnimator;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         sentences = new Queue<string>();
+        camObject = GameObject.FindGameObjectWithTag("CinemamachineCamera");
+        playerObject = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, Animator npcAnimator)
     {
+        this.npcAnimator = npcAnimator;
+
         if (dialogue == null)
         {
             Debug.LogError("Próba rozpoczęcia dialogu z null!");
@@ -30,9 +38,9 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentDialogue = dialogue;
-        
+
         currentVariant = dialogue.GetActiveVariant();
-        
+
         if (currentVariant == null)
         {
             Debug.LogError("Brak dostępnego wariantu dialogu!");
@@ -51,7 +59,6 @@ public class DialogueManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         nameText.text = dialogue.npcName;
-        Time.timeScale = 0;
 
         sentences.Clear();
 
@@ -60,7 +67,10 @@ public class DialogueManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
 
+        DisableCinemachineAxes();
+
         Debug.Log($"[DialogueManager] Queue ma {sentences.Count} zdań");
+        npcAnimator.SetBool("Talk", true);
         NextSentence();
     }
 
@@ -90,8 +100,63 @@ public class DialogueManager : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        
+
+        EnableCinemachineAxes();
+        npcAnimator.SetBool("Talk", false);
+
         currentDialogue = null;
         currentVariant = null;
+    }
+
+    private void DisableCinemachineAxes()
+    {
+        if (playerObject != null)
+        {
+            PlayerMovement playerMovement = playerObject.GetComponent<PlayerMovement>();
+
+            if (playerMovement != null)
+                playerMovement.StopMovementAndRotation();
+            else
+                Debug.LogWarning("Nie można znaleźć komponentu PlayerMovement na obiekcie gracza!");
+        }
+
+        if (camObject != null)
+        {
+            var inputController = camObject.GetComponent<CinemachineInputAxisController>();
+
+            if (inputController != null)
+            {
+                foreach (var axis in inputController.Controllers)
+                {
+                    if (axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
+                        axis.Enabled = false;
+                }
+            }
+        }
+    }
+
+    private void EnableCinemachineAxes()
+    {
+        if (playerObject != null)
+        {
+            PlayerMovement playerMovement = playerObject.GetComponent<PlayerMovement>();
+
+            if (playerMovement != null)
+                playerMovement.StartMovementAndRotation();
+        }
+
+        if (camObject != null)
+        {
+            var inputController = camObject.GetComponent<CinemachineInputAxisController>();
+
+            if (inputController != null)
+            {
+                foreach (var axis in inputController.Controllers)
+                {
+                    if (axis.Name == "Look Orbit X" || axis.Name == "Look Orbit Y")
+                        axis.Enabled = true;
+                }
+            }
+        }
     }
 }
