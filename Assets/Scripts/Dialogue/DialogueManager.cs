@@ -114,7 +114,10 @@ public class DialogueManager : MonoBehaviour
         currentVariant = null;
 
         if (SceneManager.GetActiveScene().name == "Prolog")
+            SceneManager.LoadScene("PrologPart2");
+        else if(SceneManager.GetActiveScene().name == "PrologPart2")
             SceneManager.LoadScene("Colorito");
+        
     }
 
     private void DisableCinemachineAxes()
