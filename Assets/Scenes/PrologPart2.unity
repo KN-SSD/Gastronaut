@@ -406,16 +406,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue:
-    npcName: Marian
+    npcName: Bob
     variants:
     - sentences:
-      - Stary super hotdogi
-      - Masz kupon
-      - Tylko zapierdalaj bo niedgluo sie konczy
+      - Kurde brakuje mi chyba paliwa nadgwiezdnego
+      - Zatrzymam sie na tej planecie
+      - Mam nadzieje, ze beda mogli mi pomoc
       conditionType: 0
       questName: 
       actionType: 0
-  animator: {fileID: 0}
+  animator: {fileID: 719865659}
 --- !u!4 &374060239
 Transform:
   m_ObjectHideFlags: 0
@@ -657,7 +657,7 @@ Animator:
   m_GameObject: {fileID: 719865658}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 466630cf486b54568b07d76164b66193, type: 2}
+  m_Controller: {fileID: 9100000, guid: fb3d9f7687d214ff4a0078e897f87867, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -755,14 +755,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719865658}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.4549014, z: -0, w: 0.8905418}
-  m_LocalPosition: {x: -21.29, y: 3.62, z: 20.41}
+  m_LocalRotation: {x: 0, y: -0.9774159, z: 0, w: 0.21132477}
+  m_LocalPosition: {x: -16.9, y: -2.9, z: 10.49}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1409532999}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -54.117, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -155.6, z: 0}
 --- !u!1 &935294595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1781,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495032568}
   m_CullTransparentMesh: 1
+--- !u!1001 &1627000740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 45.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.93
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 66.96
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      propertyPath: m_Name
+      value: planeta
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
 --- !u!1 &1719069473
 GameObject:
   m_ObjectHideFlags: 0
@@ -2297,3 +2354,4 @@ SceneRoots:
   - {fileID: 33811876}
   - {fileID: 374060239}
   - {fileID: 1719069476}
+  - {fileID: 1627000740}
