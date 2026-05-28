@@ -23,7 +23,7 @@ public class SpawnGreenCrystals : MonoBehaviour
         Quest quest = QuestManager.Instance.GetQuestByName(targetQuestName);
         while (quest == null)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(2f);
             quest = QuestManager.Instance.GetQuestByName(targetQuestName);
         }
 
