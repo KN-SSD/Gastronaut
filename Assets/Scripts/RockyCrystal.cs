@@ -9,7 +9,9 @@ public class RockyCrystal : MonoBehaviour
         if (collision.gameObject.CompareTag("Rock"))
         {
             Instantiate(rockPrefab, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
             Destroy(gameObject);
+
         }
     }
 }

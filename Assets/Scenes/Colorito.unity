@@ -1031,25 +1031,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue:
-    npcName: Red
+    npcName: Hong Se
     variants:
     - sentences:
-      - Kim ty w ogole jestes
+      - Porozmawiaj najpierw z Baise De...
       conditionType: 0
       questName: Red Quest
       actionType: 0
     - sentences:
-      - O Wanilla mowil o tobie, zbierz wszystkie krysztaly i wroc do mnie
+      - "Baise De wspomina\u0142, \u017Ce nam pomo\u017Cesz"
+      - "Wr\xF3\u0107 do mnie gdy b\u0119dziesz mia\u0142 wszystkie cz\u0119\u015Bci
+        kryszta\u0142u"
       conditionType: 2
       questName: Red Quest
       actionType: 0
     - sentences:
-      - O zebrales wszystkie super
+      - "Cudownie... to wszystkie kryszta\u0142y czerwieni"
+      - "Potrzebuj\u0119 chwili, \u017Ceby je naprawi\u0107, zostaw mnie prosz\u0119
+        samego"
       conditionType: 3
       questName: Red Quest
       actionType: 3
     - sentences:
-      - Juz mi pomogles elo
+      - "Dzi\u0119kuj\u0119 Ci za pomoc"
       conditionType: 4
       questName: Red Quest
       actionType: 0
@@ -1274,25 +1278,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue:
-    npcName: Blue
+    npcName: Lan Se
     variants:
     - sentences:
-      - Kim ty w ogole jestes
+      - Porozmawiaj najpierw z Baise De...
       conditionType: 0
       questName: Blue Quest
       actionType: 0
     - sentences:
-      - O Wanilla mowil o tobie, zbierz wszystkie krysztaly i wroc do mnie
+      - "Baise De wspomina\u0142, \u017Ce nam pomo\u017Cesz"
+      - "Wr\xF3\u0107 do mnie gdy b\u0119dziesz mia\u0142 wszystkie cz\u0119\u015Bci
+        kryszta\u0142u"
       conditionType: 2
       questName: Blue Quest
       actionType: 0
     - sentences:
-      - O zebrales wszystkie super
+      - "Niesamowite! Uda\u0142o Ci si\u0119 uwolni\u0107 wszystkie kryszta\u0142y
+        b\u0142\u0119kitu!"
+      - "Daj mi je prosz\u0119 a ja ju\u017C si\u0119 nimi zajm\u0119"
       conditionType: 3
       questName: Blue Quest
       actionType: 3
     - sentences:
-      - Juz mi pomogles elo
+      - "Dzi\u0119kuj\u0119 Ci za pomoc"
       conditionType: 4
       questName: Blue Quest
       actionType: 0
@@ -2229,6 +2237,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456104929}
   m_CullTransparentMesh: 1
+--- !u!1 &546340897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+  m_PrefabInstance: {fileID: 1545224688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &546340898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+  m_PrefabInstance: {fileID: 1545224688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &546340899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546340897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a53360049872e45ddb21fa0dda917004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestItemPickup
+  questName: Red Quest
+--- !u!135 &546340900
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546340897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.012
+  m_Center: {x: 0.0007458613, y: 0.00007051368, z: 0.011760259}
+--- !u!64 &546340901
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546340897}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7449615536225591622, guid: daa95767d67df49369efdedbad6f5695, type: 3}
 --- !u!1001 &556099065
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4042,6 +4116,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &860785364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860785365}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860785365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860785364}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 546340898}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863806977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6727750984576146439, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
@@ -4480,6 +4585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2024310977}
+  - {fileID: 546340898}
   - {fileID: 1548180493}
   - {fileID: 1528399641}
   - {fileID: 204075486}
@@ -5285,9 +5391,10 @@ MonoBehaviour:
     npcName: '*Bob*'
     variants:
     - sentences:
-      - Hmm dobra wyladowalem, musze sie tu rozejrzec
-      - Ten ziutek na platformie wyglad jak ktos wazny
-      - Podejde do niego zgadac, moze on mi pomoze
+      - "Ugh, to nie by\u0142o najlepsze l\u0105dowanie"
+      - "Musz\u0119 lepiej ustawi\u0107 tego autopilota"
+      - "Pora si\u0119 tu rozejrze\u0107, kosmita na g\xF3rce wygl\u0105da jak jaki\u015B
+        kr\xF3l tej planety"
       conditionType: 0
       questName: 
       actionType: 0
@@ -6364,6 +6471,75 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3563f89547fc542bb9ab8c2380192ed7, type: 3}
   m_PrefabInstance: {fileID: 1528399634}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1545224688
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 978228901}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -39.18
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -13.99
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.35
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.6480886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.64808863
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.28280944
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.28280947
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -42.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      propertyPath: m_Name
+      value: krysztal_fragment1 (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 860785365}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 546340901}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 546340900}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: daa95767d67df49369efdedbad6f5695, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 546340899}
+  m_SourcePrefab: {fileID: 100100000, guid: daa95767d67df49369efdedbad6f5695, type: 3}
 --- !u!1001 &1548180483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7798,7 +7974,7 @@ MonoBehaviour:
   Orbits:
     Top:
       Radius: 4
-      Height: 5.53
+      Height: 4
     Center:
       Radius: 5
       Height: 3
@@ -7818,8 +7994,8 @@ MonoBehaviour:
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 17.5
-    Center: 17.5
+    Value: 0
+    Center: 0
     Range: {x: -90, y: 90}
     Wrap: 0
     Recentering:
@@ -7888,8 +8064,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1824978918}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.31503257, y: -0.00000018349587, z: 0.000000062123355, w: 0.94908094}
-  m_LocalPosition: {x: 0.00000023841858, y: 3.7694244, z: -5.0523653}
+  m_LocalRotation: {x: 0.26693353, y: -0.00000004214685, z: 0.000000010536713, w: 0.963715}
+  m_LocalPosition: {x: 0.00000011920935, y: 3, z: -5.0000005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8443,21 +8619,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogue:
-    npcName: Wanilla
+    npcName: Baise De
     variants:
     - sentences:
-      - Yo wassup my nilla
-      - Musisz mi pomoc zebrac krysztal, zeby planeta znowu dzialal
+      - "Witaj przybyszu, co sprowadza Ci\u0119 na nasz\u0105 plenet\u0119?"
+      - "Braki paliwa? Rozumiem rozumiem, z ch\u0119ci\u0105 bym Ci pom\xF3g\u0142
+        ale nasz\u0105 plent\u0119 dotkn\u0119\u0142a straszna katastrofa"
+      - "Widzisz, \u017Cycie na tej planecie jest podtrzymywane dzi\u0119ki 3 kryszta\u0142om
+        kolor\xF3w"
+      - "Niestety jaki\u015B czas temu zosta\u0142y one zniszczone a ich cz\u0119\u015Bci
+        rozrzucone po ca\u0142ym globie"
+      - "Je\u015Bli pomo\u017Cesz nam je naprawi\u0107, b\u0119d\u0119 w stanie ofiarowa\u0107
+        Ci (nazwa tego co dostanie do paliwa)"
+      - "Fragmenty czerwonego kryszta\u0142u s\u0105 rozrzucone po ca\u0142ym czerwonym
+        lesie"
+      - "S\u0142ysza\u0142em, \u017Ce jeden wyl\u0105dowa\u0142 a\u017C w g\xF3rach..."
+      - "Niebieskie po\u0142\u0105czy\u0142y si\u0119 ze ska\u0142ami i utkn\u0119\u0142y
+        w murach wie\u017C"
+      - "B\u0119dziesz musia\u0142 je jako\u015B rozbi\u0107 (Prztrzymaj PPM, wyceluj
+        i rzu\u0107 LPM)"
+      - "Zielone natomiast zamieni\u0142y si\u0119 w jak\u0105\u015B dziwn\u0105
+        anomalni\u0119"
+      - "Kr\u0105\u017C\u0105 za \u015Bwi\u0105tyni\u0105 i co jaki\u015B czas kilka
+        fragment\xF3w spada na ziemie"
+      - "Musisz je z\u0142apa\u0107 zanim dotkn\u0105 pod\u0142o\u017Ca! S\u0105
+        one strasznie kruche"
+      - "Gdy zbierzesz wszystkie cz\u0119\u015Bci kryszta\u0142u udaj si\u0119 do
+        mnicha odpowiadaj\u0105cemu jego kolorowi"
+      - "B\u0119dzie on w stanie naprawi\u0107 kryszta\u0142 i umie\u015Bci\u0107
+        go z powrotem w wie\u017Cy"
+      - "Wyruszaj i pom\xF3\u017C naszej planecie!"
       conditionType: 0
       questName: 
       actionType: 2
     - sentences:
-      - No ale idz robic questa a nie
+      - "Nie ma czasu na rozmowy, musisz pom\xF3c nam z odnowieniem naszej planety!"
       conditionType: 1
       questName: 
       actionType: 0
     - sentences:
-      - Dzieki za pomoc ale uciekaj juz,  pojdz po ta swoja rakiete i odleciec stad
+      - "Dzi\u0119kuj\u0119 Ci w imieniu ca\u0142ej naszej planety za pomoc!"
+      - "Zgodnie z umow\u0105, XXX dla Ciebie!"
+      - "Uwa\u017Caj na siebie i wracaj bezpiecznie t\u0105 rakiet\u0105!"
       conditionType: 5
       questName: 
       actionType: 4
@@ -9834,6 +10037,43 @@ PrefabInstance:
     - target: {fileID: 4088590019667690624, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
       propertyPath: m_Name
       value: Quest NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: dialogue.npcName
+      value: Luse De
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: dialogue.variants.Array.data[1].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: dialogue.variants.Array.data[2].sentences.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[0].sentences.Array.data[0]'
+      value: Porozmawiaj najpierw z Baise De...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[1].sentences.Array.data[0]'
+      value: "Baise De wspomina\u0142, \u017Ce nam pomo\u017Cesz"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[1].sentences.Array.data[1]'
+      value: "Wr\xF3\u0107 do mnie gdy b\u0119dziesz mia\u0142 wszystkie cz\u0119\u015Bci
+        kryszta\u0142u"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[2].sentences.Array.data[0]'
+      value: "Czuj\u0119 t\u0119 moc zieleni, zebra\u0142e\u015B je wszystkie!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[2].sentences.Array.data[1]'
+      value: "Zostw mnie na chwil\u0119 samego... musz\u0119 si\u0119 skupi\u0107"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5502789202653313727, guid: a50a207eb53d643bc970116ac953dcdc, type: 3}
+      propertyPath: 'dialogue.variants.Array.data[3].sentences.Array.data[0]'
+      value: "Dzi\u0119kuj\u0119 Ci za pomoc"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
