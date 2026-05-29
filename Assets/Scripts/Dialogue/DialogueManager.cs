@@ -120,16 +120,22 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         currentVariant = null;
 
-        if (shouldChangeSceneAfterThisDialogue)
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        bool triggerSceneChange = false;
+        if (currentSceneIndex > 0 && currentSceneIndex < 3)
+            triggerSceneChange = true;
+        else if (shouldChangeSceneAfterThisDialogue)
+            triggerSceneChange = true;
+
+        if (triggerSceneChange)
         {
-            int targetSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+            int targetSceneIndex = currentSceneIndex + 1;
 
             if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
                 LoadSceneAndWait(targetSceneIndex);
             else
-                Debug.LogWarning("[DialogueManager] Brak kolejnych scen");
+                Debug.LogWarning("[DialogueManager] Brak kolejnych scen w Build Settings");
         }
-
     }
 
     public void LoadSceneAndWait(int sceneIndex)
