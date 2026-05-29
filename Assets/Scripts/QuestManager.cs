@@ -29,9 +29,9 @@ public class QuestManager : MonoBehaviour
 
     public void CreateQuest()
     {
-        quests.Add(new Quest("Red Quest", 3, "Wanilla", "Czerwonego Mnicha"));
-        quests.Add(new Quest("Green Quest", 7, "Wanilla", "Zielonego Mnicha"));
-        quests.Add(new Quest("Blue Quest", 3, "Wanilla", "Niebieskiego Mnicha"));
+        quests.Add(new Quest("Red Quest", 3, "Baise De", "Hang Se"));
+        quests.Add(new Quest("Green Quest", 7, "Baise De", "Lan Se"));
+        quests.Add(new Quest("Blue Quest", 3, "Baise De", "Luse De"));
         
         Debug.Log("[QuestManager] Questy utworzone");
     }
@@ -108,10 +108,12 @@ public class QuestManager : MonoBehaviour
             
             Debug.Log($"[QuestManager] Postęp '{questName}': {quest.currentProgress}/{quest.requiredProgress} (stan: {quest.questState})");
             
+            UpdateQuestUI();
+
+
             if(quest.questState == QuestState.Ready)
                 questReqirementsMet.TriggerDialogue(quest.GetQuestReceiverName());
 
-            UpdateQuestUI();
             return true;
         }
         
@@ -156,13 +158,13 @@ public class QuestManager : MonoBehaviour
                 textUI.text = $"{quest.currentProgress}/{quest.requiredProgress}";
                 break;
                 
-            // case QuestState.Ready:
-            //     textUI.text = $"{questName}: <color=green>Ready! Talk to {quest.questReceiverName}</color>";
-            //     break;
+             case QuestState.Ready:
+                textUI.text = $"<color=green>{quest.currentProgress}/{quest.requiredProgress}</color>";
+                break;
                 
-            // case QuestState.Completed:
-            //     textUI.text = $"{questName}: <color=green>Completed!</color>";
-            //     break;
+             case QuestState.Completed:
+                textUI.text = $"<color=green>√</color>";
+                break;
         }
     }
 }

@@ -276,9 +276,10 @@ MonoBehaviour:
     npcName: Bob
     variants:
     - sentences:
-      - Kurde brakuje mi chyba paliwa nadgwiezdnego
-      - Zatrzymam sie na tej planecie
-      - Mam nadzieje, ze beda mogli mi pomoc
+      - "F*ck, paliwo nadprzestrzenne si\u0119 ko\u0144czy..."
+      - "Na szcz\u0119\u015Bcie czujniki wykrywaj\u0105 jeden z dw\xF3ch kluczowych
+        sk\u0142adnik\xF3w na tej planecie"
+      - "Mam nadziej\u0119, \u017Ce jej mieszka\u0144cy b\u0119d\u0105 mogli mi pom\xF3c"
       conditionType: 0
       questName: 
       actionType: 0
