@@ -212,6 +212,8 @@ MonoBehaviour:
   flySpeed: 10
   playerReached: 1
   questName: Green Quest
+  collectVFXPrefab: {fileID: 8725267551259527592, guid: 1b49de62d1df38241bf966fa66124aef, type: 3}
+  vfxDestroyDelay: 2
 --- !u!114 &6727836356280013968
 MonoBehaviour:
   m_ObjectHideFlags: 0

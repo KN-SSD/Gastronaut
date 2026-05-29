@@ -10,6 +10,9 @@ public class MagnetItem : MonoBehaviour
 
     [SerializeField] private string questName;
 
+    [SerializeField] private GameObject collectVFXPrefab;
+    [SerializeField] private float vfxDestroyDelay = 2f;
+
 
     void Update()
     {
@@ -23,8 +26,41 @@ public class MagnetItem : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, flySpeed * Time.deltaTime);
 
             if (Vector3.Distance(transform.position, playerTransform.position) < playerReached)
-                if(QuestManager.Instance.AddQuestProgress(questName))
+            {
+                Transform backpackBone = playerTransform.Find("mixamorig:Hips/mixamorig:Spine/mixamorig:Spine1");
+
+                if (backpackBone == null)
+                {
+                    Transform[] allChildren = playerTransform.GetComponentsInChildren<Transform>();
+                    foreach (Transform child in allChildren)
+                    {
+                        if (child.name == "mixamorig:RightShoulder")
+                        {
+                            backpackBone = child;
+                            break;
+                        }
+                    }
+                }
+
+                if (collectVFXPrefab != null)
+                {
+                    GameObject spawnedVFX;
+
+                    if (backpackBone != null)
+                    {
+                        spawnedVFX = Instantiate(collectVFXPrefab, backpackBone.position, backpackBone.rotation, backpackBone);
+                        spawnedVFX.transform.localPosition = Vector3.zero;
+                    }
+                    else
+                       spawnedVFX = Instantiate(collectVFXPrefab, playerTransform.position + Vector3.up * 1f, playerTransform.rotation);
+
+
+                    Destroy(spawnedVFX, vfxDestroyDelay);
+                }
+
+                if (QuestManager.Instance.AddQuestProgress(questName))
                     Destroy(gameObject);
+            }
         }
     }
 
