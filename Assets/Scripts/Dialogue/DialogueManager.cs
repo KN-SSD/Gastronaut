@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour
     private Animator npcAnimator;
     private string questReceiverName = "";
 
+    private int nextSceneIndex;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -41,7 +43,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentDialogue = dialogue;
-
         currentVariant = dialogue.GetActiveVariant();
 
         if (currentVariant == null)
@@ -116,13 +117,37 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         currentVariant = null;
 
-        if (SceneManager.GetActiveScene().name == "Prolog")
-            SceneManager.LoadScene("PrologPart2");
-        else if(SceneManager.GetActiveScene().name == "PrologPart2")
-            SceneManager.LoadScene("Colorito");
-        else if(SceneManager.GetActiveScene().name == "Epilog")
-            SceneManager.LoadScene("Menu");
-        
+        int targetSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
+            LoadSceneAndWait(targetSceneIndex);
+        else
+            Debug.LogWarning("[DialogueManager] Brak kolejnych scen");
+    }
+
+    public void LoadSceneAndWait(int sceneIndex)
+    {
+        nextSceneIndex = sceneIndex;
+
+        float waitTime = 1f;
+
+        CloseBlackscreenScript closeScript = FindFirstObjectByType<CloseBlackscreenScript>();
+        if (closeScript != null)
+        {
+            waitTime = closeScript.GetFadeTime();
+            closeScript.StartClosingScreen();
+        }
+        else
+        {
+            Debug.LogWarning("[DialogueManager] Nie znaleziono CloseBlackscreenScript na scenie!");
+        }
+
+        Invoke("ActivateSceneAfterDelay", waitTime);
+    }
+
+    private void ActivateSceneAfterDelay()
+    {
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private void DisableCinemachineAxes()
@@ -130,7 +155,6 @@ public class DialogueManager : MonoBehaviour
         if (playerObject != null)
         {
             PlayerMovement playerMovement = playerObject.GetComponent<PlayerMovement>();
-
             if (playerMovement != null)
                 playerMovement.StopMovementAndRotation();
             else
@@ -140,7 +164,6 @@ public class DialogueManager : MonoBehaviour
         if (camObject != null)
         {
             var inputController = camObject.GetComponent<CinemachineInputAxisController>();
-
             if (inputController != null)
             {
                 foreach (var axis in inputController.Controllers)
@@ -156,7 +179,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (string.IsNullOrEmpty(questReceiverName))
             return sentence;
-        
+
         return sentence.Replace("{receiverName}", questReceiverName);
     }
 
@@ -165,7 +188,6 @@ public class DialogueManager : MonoBehaviour
         if (playerObject != null)
         {
             PlayerMovement playerMovement = playerObject.GetComponent<PlayerMovement>();
-
             if (playerMovement != null)
                 playerMovement.StartMovementAndRotation();
         }
@@ -173,7 +195,6 @@ public class DialogueManager : MonoBehaviour
         if (camObject != null)
         {
             var inputController = camObject.GetComponent<CinemachineInputAxisController>();
-
             if (inputController != null)
             {
                 foreach (var axis in inputController.Controllers)
