@@ -21,4 +21,18 @@ public class UiRelatedFunctions : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
     }
 
+    public void ShowPanel(GameObject panel)
+    {
+        panel.SetActive(true);
+    }
+
+    public void HideCredits(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
