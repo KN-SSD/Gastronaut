@@ -22,6 +22,7 @@ public class DialogueManager : MonoBehaviour
     private string questReceiverName = "";
 
     private int nextSceneIndex;
+    private bool shouldChangeSceneAfterThisDialogue = false;
 
     private void Awake()
     {
@@ -35,6 +36,8 @@ public class DialogueManager : MonoBehaviour
     {
         this.npcAnimator = npcAnimator;
         this.questReceiverName = questReceiverName;
+
+        shouldChangeSceneAfterThisDialogue = false;
 
         if (dialogue == null)
         {
@@ -117,12 +120,16 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         currentVariant = null;
 
-        int targetSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (shouldChangeSceneAfterThisDialogue)
+        {
+            int targetSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
-            LoadSceneAndWait(targetSceneIndex);
-        else
-            Debug.LogWarning("[DialogueManager] Brak kolejnych scen");
+            if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
+                LoadSceneAndWait(targetSceneIndex);
+            else
+                Debug.LogWarning("[DialogueManager] Brak kolejnych scen");
+        }
+
     }
 
     public void LoadSceneAndWait(int sceneIndex)
@@ -204,5 +211,10 @@ public class DialogueManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void MarkCurrentDialogueAsSceneChanger()
+    {
+        shouldChangeSceneAfterThisDialogue = true;
     }
 }
