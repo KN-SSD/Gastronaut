@@ -6,7 +6,16 @@ public class BackToRocket : MonoBehaviour
     {
         if(other.CompareTag("Player") && GameManager.Instance.IsLevelFinished())
         {
-            SceneManager.LoadScene("Menu");
+            if (DialogueManager.Instance != null)
+            {
+                DialogueManager.Instance.MarkCurrentDialogueAsSceneChanger();
+
+                int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+                DialogueManager.Instance.LoadSceneAndWait(nextSceneIndex);
+            }
+            else
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
