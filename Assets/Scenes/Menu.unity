@@ -584,6 +584,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 263924291}
   m_CullTransparentMesh: 1
+--- !u!1001 &366842310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 522469741}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+      propertyPath: m_Name
+      value: Astronatu_V1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
 --- !u!1 &378342286
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,6 +780,57 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &522469739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 522469741}
+  - component: {fileID: 522469740}
+  m_Layer: 0
+  m_Name: HotDogHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &522469740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522469739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa59c4af775943c894ce3abcb6a44cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingCharacter
+  moveSpeed: 5
+  spawnInterval: 2
+  zDepth: 10
+  horizontalFlightChance: 0.8
+  rotationSpeedZ: 180
+  flipXChance: 0.5
+--- !u!4 &522469741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522469739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0.59138703, w: 0.80638784}
+  m_LocalPosition: {x: 9.639, y: 1.054, z: 4.85}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1926139569}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 72.511}
 --- !u!1 &707032504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1735,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631035957}
   m_CullTransparentMesh: 1
+--- !u!4 &1926139569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d2d962e3ee98ad940bcef02787509b51, type: 3}
+  m_PrefabInstance: {fileID: 366842310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1938216933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2008,6 +2133,7 @@ SceneRoots:
   - {fileID: 2005264150}
   - {fileID: 1382884696}
   - {fileID: 988615122}
+  - {fileID: 522469741}
   - {fileID: 1938216933}
   - {fileID: 1113481032}
   - {fileID: 1272463298}
