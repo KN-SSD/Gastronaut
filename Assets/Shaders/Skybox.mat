@@ -115,7 +115,7 @@ Material:
     - _SrcBlendAlpha: 1
     - _StarHeight: 1500
     - _StarIntensity: 20
-    - _StarPower: 35
+    - _StarPower: 23
     - _Surface: 0
     - _WorkflowMode: 1
     - _XRMotionVectorsPass: 1

@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class ManualDialogueTrigger : MonoBehaviour
 {
+    [SerializeField] private GameObject dialogueWindow;
      private NPCDialogue NPCDialogue;
+     [SerializeField] private bool epilog;
     void Start()
     {
 
         NPCDialogue = GetComponent<NPCDialogue>();
-        Invoke("StartSceneDialogue", 0.1f);
+        if(epilog)
+                Invoke("StartSceneDialogueInEpilog", 5f);
+        else    
+            Invoke("StartSceneDialogue", 0.1f);
+
     }
 
     private void StartSceneDialogue()
@@ -15,4 +21,10 @@ public class ManualDialogueTrigger : MonoBehaviour
         NPCDialogue.TriggerDialogue();
     }
     
+    private void StartSceneDialogueInEpilog()
+    {
+        dialogueWindow.SetActive(true);
+        NPCDialogue.TriggerDialogue();
+    }
+
 }

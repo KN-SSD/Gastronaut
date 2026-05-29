@@ -120,6 +120,8 @@ public class DialogueManager : MonoBehaviour
             SceneManager.LoadScene("PrologPart2");
         else if(SceneManager.GetActiveScene().name == "PrologPart2")
             SceneManager.LoadScene("Colorito");
+        else if(SceneManager.GetActiveScene().name == "Epilog")
+            SceneManager.LoadScene("Menu");
         
     }
 

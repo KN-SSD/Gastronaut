@@ -1298,7 +1298,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1357638655}
   m_SourcePrefab: {fileID: 100100000, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
 --- !u!1 &1179813229
 GameObject:
@@ -1664,6 +1667,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1272514678}
   m_CullTransparentMesh: 1
+--- !u!1 &1357638653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+  m_PrefabInstance: {fileID: 1113481032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1357638655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357638653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b9fda99a6d3444e9be3cd3db68b523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotatePlanetInMenu
+  rotationAxis: {x: 0, y: 0, z: 1}
+  rotationSpeed: 5
 --- !u!1 &1382884693
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,6 +2039,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634296271}
   m_CullTransparentMesh: 1
+--- !u!1 &1691376319 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+  m_PrefabInstance: {fileID: 1938216933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1691376320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691376319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09b9fda99a6d3444e9be3cd3db68b523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotatePlanetInMenu
+  rotationAxis: {x: 0, y: -1, z: 0}
+  rotationSpeed: 10
 --- !u!1001 &1938216933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2072,7 +2113,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1691376320}
   m_SourcePrefab: {fileID: 100100000, guid: b2ea05933742041eabb619a4eb283cb8, type: 3}
 --- !u!4 &1971863413 stripped
 Transform:
