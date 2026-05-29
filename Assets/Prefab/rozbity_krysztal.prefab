@@ -1,5 +1,91 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &389004166795132925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7968830472795252574}
+    m_Modifications:
+    - target: {fileID: -8851959670923233336, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_Mass
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3471538969431647511, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: maxSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1002892067614238101, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_Name
+      value: StoneShatter
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357037426478837763, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357037426478837763, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357037426478837763, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2357037426478837763, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.15340391
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.690266
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.15340388
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.69026613
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+--- !u!4 &4378061242079987325 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4154564860105800064, guid: 00da9be7ddb096445ba9ddce8bfd868a, type: 3}
+  m_PrefabInstance: {fileID: 389004166795132925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7573999477358952629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66,7 +152,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b658efda9d1448f79746f0e34c61c0a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4378061242079987325}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5b658efda9d1448f79746f0e34c61c0a, type: 3}
       insertIndex: -1
@@ -184,3 +273,8 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.01972609
   m_Center: {x: -0.0022837732, y: -0.003846773, z: -0.001374755}
+--- !u!4 &7968830472795252574 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5b658efda9d1448f79746f0e34c61c0a, type: 3}
+  m_PrefabInstance: {fileID: 7573999477358952629}
+  m_PrefabAsset: {fileID: 0}

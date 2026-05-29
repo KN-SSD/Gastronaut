@@ -14,6 +14,12 @@ public class QuestManager : MonoBehaviour
 
     [SerializeField] private NPCDialogue questReqirementsMet;
 
+    [SerializeField] private GameObject redCrystal;
+    [SerializeField] private GameObject greenCrystal;
+    [SerializeField] private GameObject blueCrystal;
+    [SerializeField] private float delay = 3.0f;
+
+    private string targetQuestName;
 
 
     void Awake()
@@ -22,6 +28,10 @@ public class QuestManager : MonoBehaviour
         {
             Instance = this;
             CreateQuest();
+
+            if (redCrystal != null) redCrystal.SetActive(false);
+            if (greenCrystal != null) greenCrystal.SetActive(false);
+            if (blueCrystal != null) blueCrystal.SetActive(false);
         }
         else
             Destroy(gameObject);
@@ -82,7 +92,9 @@ public class QuestManager : MonoBehaviour
             quest.Complete();
             UpdateQuestUI();
             Debug.Log($"[QuestManager] Quest '{questName}' ukończony!");
-            
+
+            CrystalActivated(questName);
+
             // Sprawdź czy wszystkie questy są ukończone
             if (AreAllQuestsCompleted())
             {
@@ -167,4 +179,23 @@ public class QuestManager : MonoBehaviour
                 break;
         }
     }
+
+    private void CrystalActivated(string questName)
+    {
+        targetQuestName = questName;
+
+        Invoke(nameof(ActivateWithDelay), delay);
+    }
+
+    private void ActivateWithDelay()
+    {
+        GameObject currentCrystal = null;
+
+        if (targetQuestName == "Red Quest") currentCrystal = redCrystal;
+        else if (targetQuestName == "Green Quest") currentCrystal = greenCrystal;
+        else if (targetQuestName == "Blue Quest") currentCrystal = blueCrystal;
+
+        if (currentCrystal != null) currentCrystal.SetActive(true);
+    }
 }
+
