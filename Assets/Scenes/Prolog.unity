@@ -453,11 +453,11 @@ MonoBehaviour:
     npcName: Marian
     variants:
     - sentences:
-      - "Dzi\u0119ki Bob, \u017Ce podrzuci\u0142e\u015B mnie do domu"
-      - "Mam co\u015B dla Ciebie za fatyg\u0119"
-      - To kupon na najlepsze hotdogi w naszej lokalnej grupie kosmicznej!
-      - "Musisz si\u0119 po\u015Bpieszy\u0107 bo nied\u0142ugo ko\u0144czy si\u0119
-        jego wa\u017Cno\u015B\u0107"
+      - "Dzi\u0119ki za podw\xF3zk\u0119, Bob."
+      - "Mam co\u015B dla Ciebie za fatyg\u0119."
+      - To kupon na najlepsze hot dogi w naszej galaktyce!
+      - "Musisz si\u0119 pospieszy\u0107, nied\u0142ugo ko\u0144czy si\u0119 jego
+        wa\u017Cno\u015B\u0107"
       conditionType: 0
       questName: 
       actionType: 0

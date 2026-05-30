@@ -10,9 +10,9 @@ public class MenuVideoScript : MonoBehaviour
     private void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
-        Invoke("TurnSoundOn", (float)videoPlayer.clip.length-2.7f);
-        Destroy(videoScreen, (float)videoPlayer.clip.length-2.7f);
-        Destroy(gameObject, (float)videoPlayer.clip.length-2.7f);
+        Invoke("TurnSoundOn", (float)videoPlayer.clip.length-3.9f);
+        Destroy(videoScreen, 3.7f);//(float)videoPlayer.clip.length-3.9f);
+        Destroy(gameObject, 3.7f);//(float)videoPlayer.clip.length-3.9f);
     }
 
     private void TurnSoundOn()

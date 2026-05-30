@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Marian
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
-  m_sharedMaterial: {fileID: -1316234800496853321, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
+  m_sharedMaterial: {fileID: -1850680031778456121, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -337,8 +337,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Next
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
-  m_sharedMaterial: {fileID: -1316234800496853321, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
+  m_sharedMaterial: {fileID: -1850680031778456121, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -630,8 +630,8 @@ MonoBehaviour:
     is one of the many dialouges This is one of the many dialouges This is one of
     the many dialouges '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
-  m_sharedMaterial: {fileID: -1316234800496853321, guid: dd969434cbef84852a9ea5df77acb88c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
+  m_sharedMaterial: {fileID: -1850680031778456121, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -356,10 +356,11 @@ MonoBehaviour:
     npcName: Bob
     variants:
     - sentences:
-      - "F*ck, paliwo nadprzestrzenne si\u0119 ko\u0144czy..."
-      - "Na szcz\u0119\u015Bcie czujniki wykrywaj\u0105 jeden z dw\xF3ch kluczowych
-        sk\u0142adnik\xF3w na tej planecie"
-      - "Mam nadziej\u0119, \u017Ce jej mieszka\u0144cy b\u0119d\u0105 mogli mi pom\xF3c"
+      - "Paliwo nadprzestrzenne si\u0119 ko\u0144czy\u2026 Mog\u0142em jednak zatankowa\u0107
+        troch\u0119 wi\u0119cej."
+      - "Uff, czujniki wykrywaj\u0105 pok\u0142ady knssdium na tej planecie"
+      - "Miejmy nadziej\u0119, \u017Ce jej mieszka\u0144cy b\u0119d\u0105 mogli mi
+        pom\xF3c"
       conditionType: 0
       questName: 
       actionType: 0

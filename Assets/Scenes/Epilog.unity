@@ -447,22 +447,12 @@ MonoBehaviour:
     variants:
     - sentences:
       - "W ko\u0144cu uda\u0142o mi si\u0119 do Was dotrze\u0107!"
-      - "Mam kupon na \u201CNajlepszego Hotdoga w galaktyce\u201D"
-      - "Poprosz\u0119 o takiego z musztard\u0105 i ketchupem"
+      - "Mam kupon na \u201CNajlepszego Hotdoga w galaktyce\u201D."
+      - "Poprosz\u0119 o takiego z musztard\u0105 i ketchupem."
       - "\u2026"
       - ALE JAK TO KUPON PRZEDAWNIONY?
       - "O JEDEN DZIE\u0143?\n"
-      conditionType: 0
-      questName: 
-      actionType: 0
-    - sentences:
-      - "W ko\u0144cu uda\u0142o mi si\u0119 do Was dotrze\u0107!"
-      - "Mam kupon na \u201CNajlepszego Hotdoga w galaktyce\u201D"
-      - "Poprosz\u0119 o takiego z musztard\u0105 i ketchupem"
-      - "\u2026"
-      - ALE JAK TO KUPON PRZEDAWNIONY?
-      - "O JEDEN DZIE\u0143?\n"
-      - "Gdyby nie zmiana trasy przez brak paliwa bym zd\u0105\u017Cy\u0142\u2026"
+      - "A wystarczy\u0142o zatankowa\u0107 do pe\u0142na\u2026"
       conditionType: 0
       questName: 
       actionType: 0
@@ -621,6 +611,103 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1001 &559768466
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1247213542}
+    m_Modifications:
+    - target: {fileID: 3660475028850390004, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_Name
+      value: CloseBlackscreenPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
 --- !u!114 &586905698 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
@@ -632,6 +719,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!224 &781411352 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+  m_PrefabInstance: {fileID: 559768466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &923021333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1332,6 +1424,7 @@ RectTransform:
   m_Children:
   - {fileID: 1796323360}
   - {fileID: 338342170}
+  - {fileID: 781411352}
   - {fileID: 219053692}
   m_Father: {fileID: 33811876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

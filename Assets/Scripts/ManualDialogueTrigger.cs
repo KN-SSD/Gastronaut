@@ -12,7 +12,7 @@ public class ManualDialogueTrigger : MonoBehaviour
         if(epilog)
                 Invoke("StartSceneDialogueInEpilog", 5f);
         else    
-            Invoke("StartSceneDialogue", 0.1f);
+            Invoke("StartSceneDialogue", 0.01f);
 
     }
 

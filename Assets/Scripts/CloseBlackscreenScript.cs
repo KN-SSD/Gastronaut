@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class CloseBlackscreenScript : MonoBehaviour
 {
@@ -31,18 +33,33 @@ public class CloseBlackscreenScript : MonoBehaviour
         }
     }
 
-    private IEnumerator FadeOut()
-    {
-        float time = 0;
-        Color c = fadeImage.color;
+ private IEnumerator FadeOut()
+{
+    float time = 0;
+    Color c = fadeImage.color;
 
-        while (time<fadeDuration)
-        {
-            time += Time.deltaTime;
-            c.a = Mathf.Lerp(0f, 1f, time/fadeDuration);
-            fadeImage.color = c;
-            yield return null;
-        }
+    while (time < fadeDuration)
+    {
+        time += Time.deltaTime;
+        
+        float t = time / fadeDuration; 
+
+        float easedT = Mathf.Sin(t * Mathf.PI * 0.5f);
+
+        c.a = easedT; 
+        
+        fadeImage.color = c;
+        yield return null;
+    }
+    c.a = 1f;
+    fadeImage.color = c;
+    
+    ChangeScene();
+}
+
+    private void ChangeScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public float GetFadeTime()

@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
 
         Debug.Log($"[DialogueManager] Queue ma {sentences.Count} zdań");
 
-        if(npcAnimator != null)
+        if (npcAnimator != null)
             npcAnimator.SetBool("Talk", true);
 
         NextSentence();
@@ -120,21 +120,28 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = null;
         currentVariant = null;
 
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        bool triggerSceneChange = false;
-        if (currentSceneIndex > 0 && currentSceneIndex < 3)
-            triggerSceneChange = true;
-        else if (shouldChangeSceneAfterThisDialogue)
-            triggerSceneChange = true;
-
-        if (triggerSceneChange)
+        if (SceneManager.GetActiveScene().name == "Epilog")
         {
-            int targetSceneIndex = currentSceneIndex + 1;
+            LoadSceneAndWait(0);
+        }
+        else    
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+            bool triggerSceneChange = false;
+            if (currentSceneIndex > 0 && currentSceneIndex < 3)
+                triggerSceneChange = true;
+            else if (shouldChangeSceneAfterThisDialogue)
+                triggerSceneChange = true;
 
-            if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
-                LoadSceneAndWait(targetSceneIndex);
-            else
-                Debug.LogWarning("[DialogueManager] Brak kolejnych scen w Build Settings");
+            if (triggerSceneChange)
+            {
+                int targetSceneIndex = currentSceneIndex + 1;
+
+                if (targetSceneIndex < SceneManager.sceneCountInBuildSettings)
+                    LoadSceneAndWait(targetSceneIndex);
+                else
+                    Debug.LogWarning("[DialogueManager] Brak kolejnych scen w Build Settings");
+            }
         }
     }
 
