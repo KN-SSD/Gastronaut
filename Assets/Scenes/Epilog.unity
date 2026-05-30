@@ -243,6 +243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpenBlackscreenPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 4916235034600711557, guid: 147c1059b6ac9bd4284f67a42f087f12, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -622,6 +626,10 @@ PrefabInstance:
     - target: {fileID: 3660475028850390004, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
       propertyPath: m_Name
       value: CloseBlackscreenPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3660475028850390004, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4349286615169188640, guid: 8b78434aa9102594f94c30cec1eae5e2, type: 3}
       propertyPath: m_Pivot.x
@@ -2205,22 +2213,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1247213542}
     m_Modifications:
+    - target: {fileID: 624268742868373966, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7442189851752989634, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
     - target: {fileID: 1147741054162436664, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1247213543}
-    - target: {fileID: 1147741054162436664, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextSentence
-      objectReference: {fileID: 0}
     - target: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
       propertyPath: m_text
       value: Daj hotdoga
       objectReference: {fileID: 0}
     - target: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
       propertyPath: m_overflowMode
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3853722677036136969, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7442189851752989634, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
     - target: {fileID: 4427135002797535875, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
       propertyPath: m_Name
       value: DialoguePanel
@@ -2309,6 +2329,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5847428456182348565, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 604.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847428456182348565, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -450.4119
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477105778438484620, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_text
+      value: NEXT
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477105778438484620, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_fontSize
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477105778438484620, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477105778438484620, guid: d1648fd1b9b534260a75aa1b6919b655, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 7442189851752989634, guid: 0a111427c952a4bd4807b37e4613da1d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

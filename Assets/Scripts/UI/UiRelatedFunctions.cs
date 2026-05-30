@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class UiRelatedFunctions : MonoBehaviour
 {
-   public void ChangeScene(string sceneName)
-   {
-       SceneManager.LoadScene(sceneName);
-   }
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 
     public void HidePanel(GameObject panel)
     {
@@ -15,8 +15,11 @@ public class UiRelatedFunctions : MonoBehaviour
 
     private void Awake()
     {
-        if(SceneManager.GetActiveScene().name == "Menu")
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
             Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         else
             Cursor.lockState = CursorLockMode.Locked;
     }
